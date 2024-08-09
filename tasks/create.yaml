@@ -35,6 +35,8 @@ tasks:
   - name: k3d-slim-dev-bundle
     description: "Create the K3d-UDS Core (Istio and Keycloak Only) Bundle"
     actions:
+      - description: "Create the podinfo package"
+        cmd: "uds zarf package create packages/podinfo --confirm --no-progress --skip-sbom -o build/"
       - description: "Create the UDS Core Istio and Keycloak Only Bundle"
         cmd: "uds create bundles/k3d-slim-dev --confirm --no-progress --architecture=${ZARF_ARCHITECTURE}"
 
